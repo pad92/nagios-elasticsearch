@@ -2,8 +2,8 @@
 
 A few simple scripts for checking the state of your [ElasticSearch] cluster using Nagios the  endpoints of ElasticSearch
 
-[![Build
-Status](https://api.travis-ci.com/pad92/nagios-elasticsearch.svg?branch=master)](https://travis-ci.com/github/pad92/nagios-elasticsearch)
+[![Build](https://api.travis-ci.com/pad92/nagios-elasticsearch.svg?branch=master)](https://travis-ci.com/github/pad92/nagios-elasticsearch)
+[![Coverage](https://coveralls.io/repos/github/pad92/nagios-elasticsearch/badge.svg?branch=master)](https://coveralls.io/github/pad92/nagios-elasticsearch)
 
 ## How they work
 
