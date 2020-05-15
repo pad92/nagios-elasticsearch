@@ -7,8 +7,8 @@ python:
   - "pypy3"  # currently Python 3.6.1,  PyPy 7.1.1-beta0
 install:
   - pip install -r requirements.txt
-  - pip install pep8
+  - pip install pycodestyle
 before_script:
-  - "pep8 ."
+  - "pycodestyle ."
 script:
   - python setup.py test
