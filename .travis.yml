@@ -10,25 +10,23 @@ install:
   - pip install pycodestyle
 
 stages:
-  - pycodestyle_py2
-  - pycodestyle_py3
-  - test_py2
-  - test_py3
-
+  - pycodestyle
+  - test
+  
 jobs:
   include:
-    - stage: pycodestyle_py2
+    - stage: pycodestyle
       python: 2.7
       script: pycodestyle --show-pep8 $(find . -name "*.py") || exit 0
-    - stage: pycodestyle_py3
+    - stage: pycodestyle
       python: 3.8
       script: pycodestyle --show-pep8 $(find . -name "*.py") || exit 0
-    - stage: test_py2
+    - stage: test
       python:
       - "2.7"
       - "pypy"
       script: python setup.py test
-    - stage: test_py3
+    - stage: test
       python:
       - "3.8"
       - "pypy3"
