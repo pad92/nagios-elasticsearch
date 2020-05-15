@@ -3,23 +3,9 @@ os: linux
 dist: xenial
 
 python:
-  - "2.7" 
-  - "pypy"   # currently Python 2.7.13, PyPy 7.1.1
+  - "2.7"
+  - "pypy"
 install:
   - pip install -r requirements.txt
-stages:
-  - pycodestyle
-  - test
-  
-jobs:
-  include:
-    - stage: pycodestyle
-      python: 2.7
-      script:
-      - pip install pycodestyle
-      - pycodestyle --show-pep8 $(find . -name "*.py") || exit 0
-    - stage: test
-      python:
-      - "2.7"
-      - "pypy"
-      script: python setup.py test
+script:
+  - python setup.py test
