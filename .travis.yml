@@ -12,3 +12,4 @@ install:
   - pip install -r requirements.txt
 script:
   - coverage run setup.py test
+  - coverage report -m
