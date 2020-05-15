@@ -7,8 +7,6 @@ python:
   - "pypy3"  # currently Python 3.6.1,  PyPy 7.1.1-beta0
 install:
   - pip install -r requirements.txt
-  - pip install pycodestyle
-
 stages:
   - pycodestyle
   - test
@@ -17,10 +15,14 @@ jobs:
   include:
     - stage: pycodestyle
       python: 2.7
-      script: pycodestyle --show-pep8 $(find . -name "*.py") || exit 0
+      script:
+      - pip install pycodestyle
+      - pycodestyle --show-pep8 $(find . -name "*.py") || exit 0
     - stage: pycodestyle
       python: 3.8
-      script: pycodestyle --show-pep8 $(find . -name "*.py") || exit 0
+      script:
+      - pip install pycodestyle
+      - pycodestyle --show-pep8 $(find . -name "*.py") || exit 0
     - stage: test
       python:
       - "2.7"
