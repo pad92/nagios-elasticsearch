@@ -7,10 +7,29 @@ python:
   - "pypy3"  # currently Python 3.6.1,  PyPy 7.1.1-beta0
 install:
   - pip install -r requirements.txt
-  
+  - pip install pycodestyle
+
+stages:
+  - pycodestyle_py2
+  - pycodestyle_py3
+  - test_py2
+  - test_py3
+
 jobs:
   include:
-    - stage: pycodestyle
+    - stage: pycodestyle_py2
+      python: 2.7
       script: pycodestyle $(find . -name "*.py")
-    - stage: test
+    - stage: pycodestyle_py3
+      python: 3.8
+      script: pycodestyle $(find . -name "*.py")
+    - stage: test_py2
+      python:
+      - "2.7"
+      - "pypy"
+      script: python setup.py test
+    - stage: test_py3
+      python:
+      - "3.8"
+      - "pypy3"
       script: python setup.py test
